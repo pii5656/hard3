@@ -1,0 +1,66 @@
+# do SIMPLE_run_msim_gate_vhdl.do 
+# if {[file exists gate_work]} {
+# 	vdel -lib gate_work -all
+# }
+# vlib gate_work
+# vmap work gate_work
+# Copying /opt/altera/13.0sp1/modelsim_ase/linux/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# ** Warning: Copied /opt/altera/13.0sp1/modelsim_ase/linux/../modelsim.ini to modelsim.ini.
+#          Updated modelsim.ini.
+# 
+# vcom -93 -work work {SIMPLE.vho}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package VITAL_Timing
+# -- Loading package VITAL_Primitives
+# -- Loading package cyclone_atom_pack
+# -- Loading package cyclone_components
+# -- Compiling entity SIMPLE
+# -- Compiling architecture structure of SIMPLE
+# 
+# Window cannot be closed because the modal window "popup" is still open.
+vsim -L cyclonev_ver -L altgxb_ver -do SIMPLE_run_msim_gate_vhdl.do -l msim_transcript -i gate_work.simple
+# vsim -L cyclonev_ver -L altgxb_ver -do SIMPLE_run_msim_gate_vhdl.do -l msim_transcript -i gate_work.simple 
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.vital_timing(body)
+# Loading ieee.vital_primitives(body)
+# Loading cyclone.cyclone_atom_pack(body)
+# Loading cyclone.cyclone_components
+# Loading gate_work.simple(structure)
+# Loading ieee.std_logic_arith(body)
+# Loading cyclone.cyclone_io(structure)
+# Loading cyclone.cyclone_mux21(altvital)
+# Loading cyclone.cyclone_dffe(behave)
+# Loading cyclone.cyclone_asynch_io(behave)
+# Loading cyclone.cyclone_lcell(vital_le_atom)
+# Loading cyclone.cyclone_asynch_lcell(vital_le)
+# Loading cyclone.cyclone_lcell_register(vital_le_reg)
+# Loading cyclone.cyclone_ram_block(block_arch)
+# Loading cyclone.cyclone_ram_register(reg_arch)
+# Loading cyclone.cyclone_ram_pulse_generator(pgen_arch)
+# do SIMPLE_run_msim_gate_vhdl.do 
+# if {[file exists gate_work]} {
+# 	vdel -lib gate_work -all
+# }
+# vlib gate_work
+# vmap work gate_work
+# Modifying modelsim.ini
+# 
+# vcom -93 -work work {SIMPLE.vho}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package VITAL_Timing
+# -- Loading package VITAL_Primitives
+# -- Loading package cyclone_atom_pack
+# -- Loading package cyclone_components
+# -- Compiling entity SIMPLE
+# -- Compiling architecture structure of SIMPLE
+# 
+add wave -position end  sim:/simple/pin_name21

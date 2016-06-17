@@ -1,0 +1,24 @@
+module pc (clk, rst, sel_pc, ld_pc, pc_in, pc_out);
+	input					clk, rst;
+	input					sel_pc, ld_pc;
+	input		[7:0]		pc_in;
+	output 	[14:0] 	pc_out;
+	reg		[14:0]	pc_out;
+	wire		[14:0]	new_pc;
+	
+	function	[14:0]	sign_extend;
+		input	[7:0]		in;
+		if	(in[7])	sign_extend = {7'b1111111, in};
+		else			sign_extend = {7'b0000000, in};
+	endfunction;
+	
+	assign new_pc = pc_out + sign_extend((sel_pc ? pc_in : 8'h01));
+	
+	always @(posedge rst or posedge clk) begin
+		if (rst) begin
+			pc_out <= 15'h0000;
+		end else if (ld_pc) begin
+			pc_out <= new_pc;
+		end
+	end
+endmodule

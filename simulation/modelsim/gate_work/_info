@@ -1,0 +1,48 @@
+m255
+K3
+13
+cModel Technology
+Z0 d/home/014/a0147801/hard3/simulation/modelsim
+Epc
+Z1 w1466141763
+Z2 DPx4 ieee 16 vital_primitives 0 22 9W@YP9_VCb?_GCJ8e:;YQ0
+Z3 DPx7 cyclone 17 cyclone_atom_pack 0 22 ke7Ll8H>`=_e`^>HIWIYz0
+Z4 DPx4 ieee 12 vital_timing 0 22 7h8zz2S4HVg:a;2TBMI[j1
+Z5 DPx3 std 6 textio 0 22 5>J:;AW>W0[[dW0I6EN1Q0
+Z6 DPx4 ieee 14 std_logic_1164 0 22 5=aWaoGZSMWIcH0i^f`XF1
+Z7 DPx7 cyclone 18 cyclone_components 0 22 8id7LbfSGdY==l4^5`WZ?0
+Z8 d/home/014/a0147801/hard3/simulation/modelsim
+Z9 8SIMPLE.vho
+Z10 FSIMPLE.vho
+l0
+L34
+VBJVoh2ef0aHzW<cmNC;_o2
+!s100 XhPJ0UR73O=L]S`HCSM@A3
+Z11 OV;C;10.1d;51
+31
+!i10b 1
+Z12 !s108 1466141815.915656
+Z13 !s90 -reportprogress|300|-93|-work|work|SIMPLE.vho|
+Z14 !s107 SIMPLE.vho|
+Z15 o-93 -work work -O0
+Z16 tExplicit 1
+Astructure
+R2
+R3
+R4
+R5
+R6
+R7
+DEx4 work 2 pc 0 22 BJVoh2ef0aHzW<cmNC;_o2
+l133
+L72
+VFZ;DaPD>XCfz4W0CEb`]i1
+!s100 Kd8hZzRhMjEAdZ6W4NfJ=3
+R11
+31
+!i10b 1
+R12
+R13
+R14
+R15
+R16

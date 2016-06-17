@@ -1,0 +1,116 @@
+// Copyright (C) 1991-2013 Altera Corporation
+// Your use of Altera Corporation's design tools, logic functions 
+// and other software and tools, and its AMPP partner logic 
+// functions, and any output files from any of the foregoing 
+// (including device programming or simulation files), and any 
+// associated documentation or information are expressly subject 
+// to the terms and conditions of the Altera Program License 
+// Subscription Agreement, Altera MegaCore Function License 
+// Agreement, or other applicable license agreement, including, 
+// without limitation, that your use is for the sole purpose of 
+// programming logic devices manufactured by Altera and sold by 
+// Altera or its authorized distributors.  Please refer to the 
+// applicable agreement for further details.
+
+// *****************************************************************************
+// This file contains a Verilog test bench template that is freely editable to  
+// suit user's needs .Comments are provided in each section to help the user    
+// fill out necessary details.                                                  
+// *****************************************************************************
+// Generated on "06/17/2016 11:09:51"
+                                                                                
+// Verilog Test Bench template for design : SIMPLE
+// 
+// Simulation tool : ModelSim-Altera (Verilog)
+// 
+
+`timescale 1 ps/ 1 ps
+module SIMPLE_vlg_tst();
+// constants                                           
+// general purpose registers
+reg eachvec;
+// test vector input registers
+reg pin_name1;
+// wires                                               
+wire pin_name2;
+wire pin_name3;
+wire pin_name4;
+wire pin_name7;
+wire pin_name8;
+wire pin_name10;
+wire pin_name11;
+wire pin_name12;
+wire pin_name13;
+wire pin_name14;
+wire pin_name15;
+wire pin_name16;
+wire pin_name17;
+wire pin_name18;
+wire pin_name19;
+wire pin_name20;
+wire pin_name21;
+wire pin_name22;
+wire pin_name23;
+wire pin_name24;
+wire pin_name25;
+wire pin_name26;
+wire pin_name27;
+wire pin_name28;
+wire pin_name29;
+wire pin_name30;
+wire pin_name31;
+wire pin_name32;
+
+// assign statements (if any)                          
+SIMPLE i1 (
+// port map - connection between master ports and signals/registers   
+	.pin_name1(pin_name1),
+	.pin_name2(pin_name2),
+	.pin_name3(pin_name3),
+	.pin_name4(pin_name4),
+	.pin_name7(pin_name7),
+	.pin_name8(pin_name8),
+	.pin_name10(pin_name10),
+	.pin_name11(pin_name11),
+	.pin_name12(pin_name12),
+	.pin_name13(pin_name13),
+	.pin_name14(pin_name14),
+	.pin_name15(pin_name15),
+	.pin_name16(pin_name16),
+	.pin_name17(pin_name17),
+	.pin_name18(pin_name18),
+	.pin_name19(pin_name19),
+	.pin_name20(pin_name20),
+	.pin_name21(pin_name21),
+	.pin_name22(pin_name22),
+	.pin_name23(pin_name23),
+	.pin_name24(pin_name24),
+	.pin_name25(pin_name25),
+	.pin_name26(pin_name26),
+	.pin_name27(pin_name27),
+	.pin_name28(pin_name28),
+	.pin_name29(pin_name29),
+	.pin_name30(pin_name30),
+	.pin_name31(pin_name31),
+	.pin_name32(pin_name32)
+);
+initial                                                
+begin                                                  
+// code that executes only once                        
+// insert code here --> begin                          
+                                                       
+// --> end                                             
+$display("Running testbench");                       
+end                                                    
+always                                                 
+// optional sensitivity list                           
+// @(event1 or event2 or .... eventn)                  
+begin                                                  
+// code executes for every event on sensitivity list   
+// insert code here --> begin                          
+                                                       
+@eachvec;                                              
+// --> end                                             
+end                                                    
+endmodule
+
