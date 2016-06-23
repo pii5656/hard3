@@ -1,5 +1,5 @@
 Analysis & Synthesis report for SIMPLE
-Fri Jun 17 18:09:48 2016
+Thu Jun 23 17:48:44 2016
 Quartus II 32-bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
 
 
@@ -16,6 +16,7 @@ Quartus II 32-bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Ver
   8. General Register Statistics
   9. Elapsed Time Per Partition
  10. Analysis & Synthesis Messages
+ 11. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -41,7 +42,7 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                   ;
 +-----------------------------+--------------------------------------------------+
-; Analysis & Synthesis Status ; Successful - Fri Jun 17 18:09:48 2016            ;
+; Analysis & Synthesis Status ; Successful - Thu Jun 23 17:48:44 2016            ;
 ; Quartus II 32-bit Version   ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Full Version ;
 ; Revision Name               ; SIMPLE                                           ;
 ; Top-level Entity Name       ; pc                                               ;
@@ -237,7 +238,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus II 32-bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
-    Info: Processing started: Fri Jun 17 18:09:46 2016
+    Info: Processing started: Thu Jun 23 17:48:42 2016
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off SIMPLE -c SIMPLE
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file /home/014/a0147801/atom_netlists/kadai1.bdf
@@ -253,9 +254,20 @@ Info (12021): Found 1 design units, including 1 entities, in source file alu.v
     Info (12023): Found entity 1: alu
 Info (12021): Found 1 design units, including 1 entities, in source file shifter.v
     Info (12023): Found entity 1: shifter
+Info (12021): Found 1 design units, including 1 entities, in source file ir.v
+    Info (12023): Found entity 1: ir
+Info (12021): Found 1 design units, including 1 entities, in source file rf.v
+    Info (12023): Found entity 1: rf
+Info (12021): Found 1 design units, including 1 entities, in source file szcv.v
+    Info (12023): Found entity 1: szcv
+Info (12021): Found 1 design units, including 1 entities, in source file fase_counter.v
+    Info (12023): Found entity 1: fase_counter
+Info (12021): Found 1 design units, including 1 entities, in source file control_unit.v
+    Info (12023): Found entity 1: control_unit
 Info (12127): Elaborating entity "pc" for the top level hierarchy
 Warning (10230): Verilog HDL assignment warning at pc.v(12): truncated value with size 13 to match size of target (12)
 Warning (10230): Verilog HDL assignment warning at pc.v(13): truncated value with size 13 to match size of target (12)
+Info (144001): Generated suppressed messages file /home/014/a0147801/hard3/output_files/SIMPLE.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Info (21057): Implemented 44 device resources after synthesis - the final resource count might be different
@@ -264,8 +276,14 @@ Info (21057): Implemented 44 device resources after synthesis - the final resour
     Info (21061): Implemented 20 logic cells
 Info: Quartus II 32-bit Analysis & Synthesis was successful. 0 errors, 2 warnings
     Info: Peak virtual memory: 369 megabytes
-    Info: Processing ended: Fri Jun 17 18:09:48 2016
+    Info: Processing ended: Thu Jun 23 17:48:44 2016
     Info: Elapsed time: 00:00:02
     Info: Total CPU time (on all processors): 00:00:02
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in /home/014/a0147801/hard3/output_files/SIMPLE.map.smsg.
 
 

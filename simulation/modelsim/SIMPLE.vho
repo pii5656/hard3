@@ -16,7 +16,7 @@
 -- PROGRAM "Quartus II 32-bit"
 -- VERSION "Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version"
 
--- DATE "06/17/2016 18:10:02"
+-- DATE "06/23/2016 17:48:59"
 
 -- 
 -- Device: Altera EP1C6Q240C8 Package PQFP240

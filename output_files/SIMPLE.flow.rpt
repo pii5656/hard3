@@ -1,5 +1,5 @@
 Flow report for SIMPLE
-Fri Jun 17 18:10:02 2016
+Thu Jun 23 17:48:59 2016
 Quartus II 32-bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
 
 
@@ -40,7 +40,7 @@ applicable agreement for further details.
 +------------------------------------------------------------------------------+
 ; Flow Summary                                                                 ;
 +---------------------------+--------------------------------------------------+
-; Flow Status               ; Successful - Fri Jun 17 18:10:02 2016            ;
+; Flow Status               ; Successful - Thu Jun 23 17:48:59 2016            ;
 ; Quartus II 32-bit Version ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Full Version ;
 ; Revision Name             ; SIMPLE                                           ;
 ; Top-level Entity Name     ; pc                                               ;
@@ -60,7 +60,7 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 06/17/2016 18:09:46 ;
+; Start date & time ; 06/23/2016 17:48:42 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; SIMPLE              ;
 +-------------------+---------------------+
@@ -71,7 +71,7 @@ applicable agreement for further details.
 +-------------------------------------+---------------------------------+---------------+-------------+----------------+
 ; Assignment Name                     ; Value                           ; Default Value ; Entity Name ; Section Id     ;
 +-------------------------------------+---------------------------------+---------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID               ; 272744410113418.146615458607204 ; --            ; --          ; --             ;
+; COMPILER_SIGNATURE_ID               ; 272744410113418.146667172207818 ; --            ; --          ; --             ;
 ; EDA_OUTPUT_DATA_FORMAT              ; Vhdl                            ; --            ; --          ; eda_simulation ;
 ; EDA_SIMULATION_TOOL                 ; ModelSim-Altera (VHDL)          ; <None>        ; --          ; --             ;
 ; EDA_TIME_SCALE                      ; 1 ps                            ; --            ; --          ; eda_simulation ;
@@ -97,7 +97,7 @@ applicable agreement for further details.
 ; Analysis & Synthesis      ; 00:00:02     ; 1.0                     ; 362 MB              ; 00:00:02                           ;
 ; Fitter                    ; 00:00:03     ; 1.0                     ; 428 MB              ; 00:00:03                           ;
 ; Assembler                 ; 00:00:01     ; 1.0                     ; 321 MB              ; 00:00:01                           ;
-; TimeQuest Timing Analyzer ; 00:00:01     ; 1.0                     ; 294 MB              ; 00:00:01                           ;
+; TimeQuest Timing Analyzer ; 00:00:01     ; 1.0                     ; 306 MB              ; 00:00:01                           ;
 ; EDA Netlist Writer        ; 00:00:01     ; 1.0                     ; 298 MB              ; 00:00:01                           ;
 ; Total                     ; 00:00:08     ; --                      ; --                  ; 00:00:08                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+

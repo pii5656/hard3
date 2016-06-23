@@ -1,5 +1,5 @@
 Fitter report for SIMPLE
-Fri Jun 17 18:09:53 2016
+Thu Jun 23 17:48:49 2016
 Quartus II 32-bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
 
 
@@ -62,7 +62,7 @@ applicable agreement for further details.
 +------------------------------------------------------------------------------+
 ; Fitter Summary                                                               ;
 +---------------------------+--------------------------------------------------+
-; Fitter Status             ; Successful - Fri Jun 17 18:09:53 2016            ;
+; Fitter Status             ; Successful - Thu Jun 23 17:48:49 2016            ;
 ; Quartus II 32-bit Version ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Full Version ;
 ; Revision Name             ; SIMPLE                                           ;
 ; Top-level Entity Name     ; pc                                               ;
@@ -1045,7 +1045,7 @@ Info (170195): Router estimated average interconnect usage is 0% of the availabl
 Info (170194): Fitter routing operations ending: elapsed time is 00:00:00
 Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were skipped to reduce compilation time.
     Info (170201): Optimizations that may affect the design's routability were skipped
-Info (11888): Total time spent on timing analysis during the Fitter is 0.22 seconds.
+Info (11888): Total time spent on timing analysis during the Fitter is 0.26 seconds.
 Info (186079): Completed Fixed Delay Chain Operation
 Info (306004): Started post-fitting delay annotation
 Info (306005): Delay annotation completed successfully
@@ -1056,7 +1056,7 @@ Warning (169174): The Reserve All Unused Pins setting has not been specified, an
 Info (144001): Generated suppressed messages file /home/014/a0147801/hard3/output_files/SIMPLE.fit.smsg
 Info: Quartus II 32-bit Fitter was successful. 0 errors, 34 warnings
     Info: Peak virtual memory: 428 megabytes
-    Info: Processing ended: Fri Jun 17 18:09:53 2016
+    Info: Processing ended: Thu Jun 23 17:48:49 2016
     Info: Elapsed time: 00:00:03
     Info: Total CPU time (on all processors): 00:00:03
 

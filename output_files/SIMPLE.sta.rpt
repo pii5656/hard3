@@ -1,5 +1,5 @@
 TimeQuest Timing Analyzer report for SIMPLE
-Fri Jun 17 18:09:59 2016
+Thu Jun 23 17:48:55 2016
 Quartus II 32-bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
 
 
@@ -502,7 +502,7 @@ No dedicated SERDES Receiver circuitry present in device or used in design
 Info: *******************************************************************
 Info: Running Quartus II 32-bit TimeQuest Timing Analyzer
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
-    Info: Processing started: Fri Jun 17 18:09:58 2016
+    Info: Processing started: Thu Jun 23 17:48:54 2016
 Info: Command: quartus_sta SIMPLE -c SIMPLE
 Info: qsta_default_script.tcl version: #1
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
@@ -530,8 +530,8 @@ Info (332001): The selected device family is not supported by the report_metasta
 Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
 Info: Quartus II 32-bit TimeQuest Timing Analyzer was successful. 0 errors, 2 warnings
-    Info: Peak virtual memory: 294 megabytes
-    Info: Processing ended: Fri Jun 17 18:09:59 2016
+    Info: Peak virtual memory: 306 megabytes
+    Info: Processing ended: Thu Jun 23 17:48:55 2016
     Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:01
 

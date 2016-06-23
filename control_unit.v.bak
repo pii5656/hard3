@@ -1,0 +1,15 @@
+/* Control Unit */
+
+module control_unit(clk, rst, exec, fase, p1, p2, p3, p4, p5, rst_out);
+	input clk, rst, exec;
+	input [3:0] fase;
+	output p1, p2, p3, p4, p5;
+	output rst_out;
+	wire rst_out;
+	
+	always @(posedge clk or posedge rst) begin
+		if (rst) begin
+			assign rst_out = 1'b1;
+		end
+	end
+endmodule	

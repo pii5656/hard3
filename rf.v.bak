@@ -1,0 +1,26 @@
+/* Register File */
+
+module rf (clk, rst, in_rf, ld_rf, out_ar, out_br, out_fcode);
+	input clk, rst;
+	input ld_rf;
+	input [15:0] in_rf;
+	output [2:0] out_ar;
+	output [2:0] out_br;
+	output [3:0] out_fcode;
+	
+	wire [2:0] ar_tmp, br_tmp;
+	wire [3:0] fcode_tmp;
+	
+	always @(posedge clk or posedge rst) begin
+		case (in_rf[15:14])
+			2'b11	:	begin
+				ar_tmp <= in_rf[13:11];
+				br_tmp <= in_rf[10:8];
+				fcode_tmp <= in_rf[7:4];
+			end
+		end
+		assign out_ar = ar_tmp;
+		assign out_br = br_tmp;
+		assign out_fcode = fcode_tmp;
+	end
+endmodule
