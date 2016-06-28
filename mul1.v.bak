@@ -1,0 +1,34 @@
+/* Get contents of Ra and Rb from register file */
+
+module mul1 (from_ir, from_rf, ra, rb);
+	input [15:0] from_ir;
+	input [15:0] from_rf;
+	output [2:0] ar;
+	output [2:0] br;
+	reg [2:0] ar;
+	reg [2:0] br;
+	
+	always @* begin
+		ar = from_ir[13:11];
+		br = from_ir[10:8];
+	/*
+		case (from_rf[15:14])
+			2'b11	:	begin
+				ar = from_rf[13:11];
+				br = from_rf[10:8];
+			end
+			2'b00 :	begin
+				ar = from_rf[13:11];
+				br = from_rf[10:8];
+			end
+			2'b01 :	begin
+				ar = from_rf[13:11];
+				br = from_rf[10:8];
+			end
+			2'b10	:	begin
+				ar_tmp <= 2'b00;
+				br = in_rf[10:8];
+			end
+		endcase */
+	end
+endmodule

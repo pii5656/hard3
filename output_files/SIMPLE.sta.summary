@@ -3,15 +3,39 @@ TimeQuest Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Setup 'clk'
-Slack : -1.758
-TNS   : -16.676
+Slack : -8.204
+TNS   : -1728.053
+
+Type  : Setup 'ir:ir1|ir_out[11]'
+Slack : -4.532
+TNS   : -82.760
+
+Type  : Setup 'ir:ir1|ir_out[6]'
+Slack : -3.737
+TNS   : -54.109
+
+Type  : Hold 'ir:ir1|ir_out[11]'
+Slack : -6.534
+TNS   : -101.165
+
+Type  : Hold 'ir:ir1|ir_out[6]'
+Slack : -6.061
+TNS   : -72.542
 
 Type  : Hold 'clk'
-Slack : 1.045
-TNS   : 0.000
+Slack : -0.273
+TNS   : -0.698
 
 Type  : Minimum Pulse Width 'clk'
 Slack : -1.583
-TNS   : -33.215
+TNS   : -1142.971
+
+Type  : Minimum Pulse Width 'ir:ir1|ir_out[6]'
+Slack : -0.002
+TNS   : -0.132
+
+Type  : Minimum Pulse Width 'ir:ir1|ir_out[11]'
+Slack : 0.500
+TNS   : 0.000
 
 ------------------------------------------------------------

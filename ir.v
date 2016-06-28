@@ -1,9 +1,10 @@
-/* 16bit Instruction Register */
+/* 16bit Instruction Register (DFF) */
 
 module ir (clk, rst, ir_in, ld_ir, ir_out);
 		input clk, rst;
 		input ld_ir;
 		input [15:0] ir_in;
+		wire [15:0] ir_in;
 		output [15:0]	ir_out;
 		reg [15:0]	ir_out;
 		//wire	[15:0]	ir_out;

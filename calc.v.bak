@@ -1,0 +1,9 @@
+module calc(ra, rb, instr);
+	input [15:0] ra, rb;
+	input [15:0] instr;
+	output [15:0] result;
+	output [3:0] szcv;
+	reg [15:0] result;
+	reg [3:0] szcv;
+	
+	

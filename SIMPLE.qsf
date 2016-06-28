@@ -38,7 +38,7 @@
 
 set_global_assignment -name FAMILY Cyclone
 set_global_assignment -name DEVICE EP1C6Q240C8
-set_global_assignment -name TOP_LEVEL_ENTITY pc
+set_global_assignment -name TOP_LEVEL_ENTITY SIMPLE
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION "13.0 SP1"
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "11:13:35  JUNE 10, 2016"
 set_global_assignment -name LAST_QUARTUS_VERSION "13.0 SP1"
@@ -49,41 +49,8 @@ set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
 set_global_assignment -name EDA_SIMULATION_TOOL "ModelSim-Altera (VHDL)"
 set_global_assignment -name EDA_OUTPUT_DATA_FORMAT VHDL -section_id eda_simulation
 set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "3.3-V LVTTL"
-set_location_assignment PIN_28 -to pin_name1
-set_location_assignment PIN_134 -to pin_name2
-set_location_assignment PIN_135 -to pin_name3
-set_location_assignment PIN_136 -to pin_name4
-set_location_assignment PIN_137 -to pin_name7
-set_location_assignment PIN_138 -to pin_name8
-set_location_assignment PIN_139 -to pin_name10
-set_location_assignment PIN_140 -to pin_name11
-set_location_assignment PIN_124 -to pin_name12
-set_location_assignment PIN_125 -to pin_name13
-set_location_assignment PIN_126 -to pin_name14
-set_location_assignment PIN_127 -to pin_name15
-set_location_assignment PIN_128 -to pin_name16
-set_location_assignment PIN_131 -to pin_name17
-set_location_assignment PIN_132 -to pin_name18
-set_location_assignment PIN_116 -to pin_name19
-set_location_assignment PIN_117 -to pin_name20
-set_location_assignment PIN_118 -to pin_name21
-set_location_assignment PIN_119 -to pin_name22
-set_location_assignment PIN_120 -to pin_name23
-set_location_assignment PIN_121 -to pin_name24
-set_location_assignment PIN_122 -to pin_name25
-set_location_assignment PIN_104 -to pin_name26
-set_location_assignment PIN_105 -to pin_name27
-set_location_assignment PIN_106 -to pin_name28
-set_location_assignment PIN_107 -to pin_name29
-set_location_assignment PIN_108 -to pin_name30
-set_location_assignment PIN_113 -to pin_name31
-set_location_assignment PIN_114 -to pin_name32
 set_global_assignment -name EDA_TIME_SCALE "1 ps" -section_id eda_simulation
-set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
-set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
-set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_global_assignment -name VERILOG_TEST_BENCH_FILE simulation/modelsim/_pc.vt
-set_global_assignment -name BDF_FILE ../atom_netlists/kadai1.bdf
 set_global_assignment -name QIP_FILE ram01.qip
 set_global_assignment -name BDF_FILE SIMPLE.bdf
 set_global_assignment -name MIF_FILE SIMPLE.mif
@@ -93,6 +60,53 @@ set_global_assignment -name VERILOG_FILE shifter.v
 set_global_assignment -name VERILOG_FILE ir.v
 set_global_assignment -name VERILOG_FILE rf.v
 set_global_assignment -name VERILOG_FILE szcv.v
-set_global_assignment -name VERILOG_FILE fase_counter.v
 set_global_assignment -name VERILOG_FILE control_unit.v
+set_global_assignment -name BDF_FILE output_files/7seg.bdf
+set_location_assignment PIN_28 -to clk
+set_location_assignment PIN_134 -to output1
+set_location_assignment PIN_135 -to output2
+set_location_assignment PIN_136 -to output3
+set_location_assignment PIN_137 -to output4
+set_location_assignment PIN_138 -to output5
+set_location_assignment PIN_139 -to output6
+set_location_assignment PIN_140 -to output7
+set_location_assignment PIN_124 -to output8
+set_location_assignment PIN_125 -to output9
+set_location_assignment PIN_126 -to output10
+set_location_assignment PIN_127 -to output11
+set_location_assignment PIN_128 -to output12
+set_location_assignment PIN_131 -to output13
+set_location_assignment PIN_132 -to output14
+set_location_assignment PIN_116 -to output15
+set_location_assignment PIN_117 -to output16
+set_location_assignment PIN_118 -to output17
+set_location_assignment PIN_119 -to output18
+set_location_assignment PIN_120 -to output19
+set_location_assignment PIN_121 -to output20
+set_location_assignment PIN_122 -to output21
+set_location_assignment PIN_104 -to output22
+set_location_assignment PIN_105 -to output23
+set_location_assignment PIN_106 -to output24
+set_location_assignment PIN_107 -to output25
+set_location_assignment PIN_108 -to output26
+set_location_assignment PIN_113 -to output27
+set_location_assignment PIN_114 -to output28
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_global_assignment -name VERILOG_FILE adder.v
+set_global_assignment -name CDF_FILE output_files/output_files/Chain5.cdf
+set_global_assignment -name CDF_FILE output_files/Chain7.cdf
+set_global_assignment -name VERILOG_FILE mul1.v
+set_global_assignment -name VERILOG_FILE calc.v
+set_global_assignment -name VERILOG_FILE rab.v
+set_global_assignment -name VERILOG_FILE mul4.v
+set_global_assignment -name VERILOG_FILE mul5.v
+set_global_assignment -name VERILOG_FILE out_reg.v
+set_global_assignment -name VERILOG_FILE mul6.v
+set_global_assignment -name VERILOG_FILE phase_counter.v
+set_location_assignment PIN_57 -to pin_name1
+set_location_assignment PIN_58 -to pin_name2
+set_location_assignment PIN_59 -to pin_name3
+set_location_assignment PIN_60 -to pin_name4
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

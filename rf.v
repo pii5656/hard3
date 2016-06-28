@@ -1,48 +1,44 @@
-/* Register File */
+/* Register File (16bit DFF)*/
 
-module rf (clk, rst, in_rf, ld_rf, out_ar, out_br, out_fcode, out_d);
+module rf (clk, rst, dest, from_alu, ld_rf, out_rf);
 	input clk, rst;
 	input ld_rf;
-	input [15:0] in_rf;
-	output [2:0] out_ar;
-	output [2:0] out_br;
-	output [3:0] out_fcode;
-	output [7:0] out_d;
-	
-	reg [2:0] ar_tmp, br_tmp;
-	reg [3:0] fcode_tmp;
-	reg [7:0] d_tmp;
+	input [2:0] dest;
+	input [15:0] from_alu;
+	output [127:0] out_rf;
+	reg [127:0]	out_rf;
 	
 	always @(posedge clk or posedge rst) begin
-		case (in_rf[15:14])
-			2'b11	:	begin
-				ar_tmp <= in_rf[13:11];
-				br_tmp <= in_rf[10:8];
-				fcode_tmp <= in_rf[7:4];
-				d_tmp <= {4'b0000, in_rf[3:0]};
-			end
-			2'b00 :	begin
-				ar_tmp <= in_rf[13:11];
-				br_tmp <= in_rf[10:8];
-				fcode_tmp <= 2'b00;
-				d_tmp <= in_rf[7:0];
-			end
-			2'b01 :	begin
-				ar_tmp <= in_rf[13:11];
-				br_tmp <= in_rf[10:8];
-				fcode_tmp <= 2'b01;
-				d_tmp <= in_rf[7:0];
-			end
-			2'b10	:	begin
-				ar_tmp <= 2'b00;
-				br_tmp <= in_rf[10:8];
-				fcode_tmp <= in_rf[13:11];
-				d_tmp <= in_rf[7:0];
-			end
-		endcase
+		if(rst) begin
+			out_rf = 127'd0;
+			
+		end else if(ld_rf) begin
+			case (dest)
+			3'b000 : begin
+							out_rf[15:0] = from_alu;
+						end
+			3'b001 : begin
+							out_rf[31:16] = from_alu;
+						end
+			3'b010 : begin
+							out_rf[47:32] = from_alu;
+						end
+			3'b011 : begin
+							out_rf[63:48] = from_alu;
+						end
+			3'b100 : begin
+							out_rf[79:64] = from_alu;
+						end
+			3'b101 : begin
+							out_rf[95:80] = from_alu;
+						end
+			3'b110 : begin
+							out_rf[111:96] = from_alu;
+						end
+			3'b111 : begin
+							out_rf[127:112] = from_alu;
+						end
+			endcase
+		end
 	end
-	assign out_ar = ar_tmp;
-	assign out_br = br_tmp;
-	assign out_fcode = fcode_tmp;
-	assign out_d = d_tmp;
 endmodule
