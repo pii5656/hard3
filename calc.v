@@ -6,6 +6,8 @@
 `define	F_XOR		4'b0100
 `define	F_CMP		4'b0101
 `define	F_MOV		4'b1000
+`define  F_IN 		4'b1100
+`define 	F_OUT    4'b1101
 
 `define	F_SLL		4'b1000
 `define	F_SLR		4'b1001
@@ -26,11 +28,13 @@ module calc (instr, a, b, result, code);
 	reg [15:0]	work0, work1, work2, work3;
 	reg [3:0] shift;
 	
+	initial result = 16'b0000000000000000;
 	
 	/* ALU */
 	always @* begin
-		case (instr[7:4]) // op3
-			`F_ADD	:	begin
+		if (instr[15:14] == 2'b11) begin
+			case (instr[7:4]) // op3
+				`F_ADD	:	begin
 								x = a + b;
 								z1 = (x == 17'd0);
 								c1 = x[16];
@@ -94,14 +98,31 @@ module calc (instr, a, b, result, code);
 								z1	=	x[15:0] == 16'b0000000000000000;
 								result1 = x[15:0];
 							end
-			default 	:	case (instr[15:7])
-								// LI
-								5'b10000	:	begin
-													result1 = {8'b00000000, instr[7:0]};
-												end
-							endcase
-							
-		endcase
+			`F_OUT	:	begin
+								result1 = a;
+								c1 = 1'b0;
+								s1	= 1'b0;
+								z1	= 1'b0;
+							end
+			default	:	begin
+								result1 = 16'b0000000000000000;
+								c1 = 1'b0;
+								s1	= 1'b0;
+								z1	= 1'b0;
+							end
+			endcase
+		// LI or B
+		end else if (instr[15:14] == 2'b10) begin
+			case(instr[13:11]) // op2
+				3'b000	:	begin
+									result1 = {8'b00000000, instr[7:0]};
+								end
+				default	:	begin
+									result1 = 16'b0000000000000000;
+								end
+				//TODO B		
+			endcase
+		end
 		code1 = {s1,z1,c1,v1};
 	end
 
@@ -158,6 +179,9 @@ module calc (instr, a, b, result, code);
 								
 								v2 = 1'b0;
 							end
+			default	:	begin
+								result2 = 16'b0000000000000000;
+							end
 			endcase
 		code2 = {s2,z2,c2,v2};
 	end
@@ -166,9 +190,11 @@ module calc (instr, a, b, result, code);
 		if ((instr[7:4] == `F_SLL) || (instr[7:4] == `F_SLR) || (instr[7:4] == `F_SRL) || (instr[7:4] == `F_SRA)) begin
 			result = result2;
 			code = code2;
-		end else begin
+		end else if ((instr[15:14] == 2'b11 && ((instr[7:4] == `F_ADD) || (instr[7:4] == `F_SUB) || (instr[7:4] == `F_AND) || (instr[7:4] == `F_OR) || (instr[7:4] == `F_XOR) || (instr[7:4] == `F_CMP) || (instr[7:4] == `F_MOV) || (instr[7:4] == `F_OUT))) || (instr[15:11] == 5'b10000)) begin
 			result = result1;
 			code = code1;
+		end else begin
+			result = 1'b0000000000000000;
 		end
 	end
 endmodule

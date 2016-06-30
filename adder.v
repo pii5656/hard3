@@ -5,6 +5,6 @@ module adder(in, out);
 	reg [11:0] out;
 	
 	always @* begin
-		out = in + 12'b0000000000000001;
+		out = in + 12'b000000000001;
 	end
 endmodule

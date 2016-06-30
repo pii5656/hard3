@@ -8,7 +8,7 @@ module mul6(instr, phase, enable);
 	reg enable;
 	
 	always @* begin
-		if (instr[15:11] == 6'b111101) begin
+		if (instr[15:14] == 2'b11 && instr[7:4] == 4'b1101 && phase[2]) begin
 			enable = 1'b1;
 		end else begin
 			enable = 1'b0;

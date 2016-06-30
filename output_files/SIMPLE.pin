@@ -83,7 +83,7 @@ GND*                         : 16        :        :                   :         
 GND*                         : 17        :        :                   :         : 1         :                
 GND*                         : 18        :        :                   :         : 1         :                
 GND*                         : 19        :        :                   :         : 1         :                
-pin_name5                    : 20        : output : 3.3-V LVTTL       :         : 1         : N              
+GND*                         : 20        :        :                   :         : 1         :                
 GND*                         : 21        :        :                   :         : 1         :                
 VCCIO1                       : 22        : power  :                   : 3.3V    : 1         :                
 GND*                         : 23        :        :                   :         : 1         :                
@@ -124,7 +124,7 @@ pin_name1                    : 57        : output : 3.3-V LVTTL       :         
 pin_name2                    : 58        : output : 3.3-V LVTTL       :         : 1         : Y              
 pin_name3                    : 59        : output : 3.3-V LVTTL       :         : 1         : Y              
 pin_name4                    : 60        : output : 3.3-V LVTTL       :         : 1         : Y              
-GND*                         : 61        :        :                   :         : 4         :                
+pin_name5                    : 61        : output : 3.3-V LVTTL       :         : 4         : Y              
 GND*                         : 62        :        :                   :         : 4         :                
 GND*                         : 63        :        :                   :         : 4         :                
 GND*                         : 64        :        :                   :         : 4         :                

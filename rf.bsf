@@ -61,8 +61,8 @@ applicable agreement for further details.
 	(port
 		(pt 216 32)
 		(output)
-		(text "out_rf[0..127]" (rect 0 0 53 12)(font "Arial" ))
-		(text "out_rf[0..127]" (rect 142 27 195 39)(font "Arial" ))
+		(text "out_rf[127..0]" (rect 0 0 53 12)(font "Arial" ))
+		(text "out_rf[127..0]" (rect 142 27 195 39)(font "Arial" ))
 		(line (pt 216 32)(pt 200 32)(line_width 3))
 	)
 	(drawing
