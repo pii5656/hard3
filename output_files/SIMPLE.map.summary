@@ -1,10 +1,10 @@
-Analysis & Synthesis Status : Successful - Thu Jun 30 17:20:48 2016
+Analysis & Synthesis Status : Successful - Fri Jul  1 14:29:33 2016
 Quartus II 32-bit Version : 13.0.1 Build 232 06/12/2013 SP 1 SJ Full Version
 Revision Name : SIMPLE
 Top-level Entity Name : SIMPLE
 Family : Cyclone
-Total logic elements : 633
-Total pins : 34
+Total logic elements : 9
+Total pins : 6
 Total virtual pins : 0
-Total memory bits : 65,536
+Total memory bits : 0
 Total PLLs : 0

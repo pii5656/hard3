@@ -1,0 +1,40 @@
+library verilog;
+use verilog.vl_types.all;
+entity SIMPLE is
+    port(
+        output1         : out    vl_logic;
+        clk             : in     vl_logic;
+        output2         : out    vl_logic;
+        output3         : out    vl_logic;
+        output4         : out    vl_logic;
+        output5         : out    vl_logic;
+        output6         : out    vl_logic;
+        output7         : out    vl_logic;
+        output8         : out    vl_logic;
+        output9         : out    vl_logic;
+        output10        : out    vl_logic;
+        output11        : out    vl_logic;
+        output12        : out    vl_logic;
+        output13        : out    vl_logic;
+        output14        : out    vl_logic;
+        output15        : out    vl_logic;
+        output16        : out    vl_logic;
+        output17        : out    vl_logic;
+        output18        : out    vl_logic;
+        output19        : out    vl_logic;
+        output21        : out    vl_logic;
+        output22        : out    vl_logic;
+        output23        : out    vl_logic;
+        output24        : out    vl_logic;
+        output25        : out    vl_logic;
+        output26        : out    vl_logic;
+        output27        : out    vl_logic;
+        output28        : out    vl_logic;
+        output20        : out    vl_logic;
+        pin_name1       : out    vl_logic;
+        pin_name2       : out    vl_logic;
+        pin_name3       : out    vl_logic;
+        pin_name4       : out    vl_logic;
+        pin_name5       : out    vl_logic
+    );
+end SIMPLE;

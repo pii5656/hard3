@@ -50,7 +50,7 @@ module calc (instr, a, b, result, code);
 								z1	=	x[15:0] == 16'b0000000000000000;
 							end
 			`F_SUB	:	begin
-								x	= a - b;
+								x	= b - a;
 							   c1 = x[16];
 								result1 = x[15:0];
 								// overflow
@@ -85,7 +85,7 @@ module calc (instr, a, b, result, code);
 								result1 = x[15:0];
 							end
 			`F_CMP	:	begin
-								x = a - b;
+								x = b - a;
 								c1 = x[16];
 								s1	=	x[15];
 								z1	=	x[15:0] == 16'b0000000000000000;
@@ -127,6 +127,7 @@ module calc (instr, a, b, result, code);
 	end
 
 	always @* begin
+		shift = instr[3:0];
 		case (instr[7:4]) // op3
 			`F_SLL	:	begin
 								work0 = shift[0]?{b[14:0], {1'b0}}:b;
