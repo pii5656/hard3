@@ -118,10 +118,17 @@ module SIMPLE(
    
    phase_counter b2v_inst27(
 			    .clk(clk),
-			    .rst(rst),	
+			    .rst(rst),
+			    .enable(ph_enable),
 			    .past_phase(phase),
 			    .out_phase(phase));
 
+   hlt_dff hlt_dff(
+		   .clk(clk),
+		   .rst(rst),
+		   .instr(instr),
+		   .enable(ph_enable));
+   
 
 ir	b2v_ir1(
 	.clk(clk),

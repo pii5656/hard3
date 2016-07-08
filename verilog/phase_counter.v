@@ -1,7 +1,7 @@
 /* phase counter */
 
-module phase_counter(clk, rst, past_phase, out_phase);
-   input clk, rst;
+module phase_counter(clk, rst, enable, past_phase, out_phase);
+   input clk, rst, enable;
    input [4:0] past_phase;
    output [4:0] out_phase;
    
@@ -10,7 +10,7 @@ module phase_counter(clk, rst, past_phase, out_phase);
    always @(posedge clk or posedge rst)
      if (rst) begin
 	tmp_out_phase = 5'b00000;
-     end else begin
+     end else if (enable) begin
 	tmp_past_phase = past_phase ? past_phase : 5'b10000;
 	case (tmp_past_phase)
 	  5'b00001	:	begin
@@ -28,7 +28,9 @@ module phase_counter(clk, rst, past_phase, out_phase);
 	  5'b10000	:	begin
 	     tmp_out_phase = 5'b00001;
 	  end
-	endcase
-     end
+	endcase // case (tmp_past_phase)
+     end else begin // if enable
+	tmp_out_phase = past_phase;
+     end // else: !ifenable
    assign out_phase = tmp_out_phase;
 endmodule
