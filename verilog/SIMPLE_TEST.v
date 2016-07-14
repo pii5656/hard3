@@ -33,6 +33,6 @@ module SIMPLE_TEST();
    initial begin
       CLK = 1'b1;
       RST = 1'b1;
-      $monitor("phase=%b, pc=%b,addr=%b, RAMout=%b, instr=%b, mul4result=%b,rfenable=%b, Ra=%b, regi=%b",SIMPLE.phase, SIMPLE.pc, SIMPLE.address, SIMPLE.SYNTHESIZED_WIRE_10, SIMPLE.instr, SIMPLE.SYNTHESIZED_WIRE_22,SIMPLE.SYNTHESIZED_WIRE_17, SIMPLE.SYNTHESIZED_WIRE_1, SIMPLE.rf);
+      $monitor("phase=%b, pc=%b, pc_in=%b, addr=%b, RAMout=%b, instr=%b, mul4result=%b, jflag=%b, jdest=%b",SIMPLE.phase, SIMPLE.pc, SIMPLE.pc_in, SIMPLE.address, SIMPLE.SYNTHESIZED_WIRE_10, SIMPLE.instr, SIMPLE.SYNTHESIZED_WIRE_22, SIMPLE.jflag, SIMPLE.jdest);
    end
 endmodule

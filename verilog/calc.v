@@ -235,10 +235,9 @@ endmodule*/
 `define	F_SRL		4'b1010
 `define	F_SRA		4'b1011
 
-module calc (instr, pc, a, b, result, code);
+module calc (instr, a, b, result, code);
    input	 [15:0] 	instr;
    input [15:0] 		a, b;
-   input [11:0] 		pc; 		
    output [15:0] 		result; // result
    output [3:0] 		code;
    reg [16:0] 			x, tmp_x;
@@ -288,6 +287,7 @@ module calc (instr, pc, a, b, result, code);
 	   `F_AND	:	begin
 	      x = a & b;
 	      c1 = 1'b0;
+	      v1 = 1'b0;
 	      s1	=	x[15];
 	      z1	=	x[15:0] == 16'b0000000000000000;
 	      result1 = x[15:0];
@@ -295,6 +295,7 @@ module calc (instr, pc, a, b, result, code);
 	   `F_OR		:	begin
 	      x = a | b;
 	      c1 = 1'b0;
+	      v1 = 1'b0;
 	      s1	=	x[15];
 	      z1	=	x[15:0] == 16'b0000000000000000;
 	      result1 = x[15:0];
@@ -303,12 +304,20 @@ module calc (instr, pc, a, b, result, code);
 	      x = a ^ b;
 	      c1 = 1'b0;
 	      s1	=	x[15];
+	      v1 = x[15];
 	      z1	=	x[15:0] == 16'b0000000000000000;
 	      result1 = x[15:0];
 	   end
 	   `F_CMP	:	begin
-	      x = a - b;
+	      x = b - a;
 	      c1 = x[16];
+	      // overflow
+	      // sub  + + = -  OR  - - = +
+	      if ((a[15] && !b[15] && !x[15]) || (!a[15] && b[15] && x[15])) begin
+		 v1 = 1'b1;
+	      end else begin 
+		 v1 = 1'b0;
+	      end
 	      s1	=	x[15];
 	      z1	=	x[15:0] == 16'b0000000000000000;
 	      result1 = x[15:0];
@@ -316,6 +325,7 @@ module calc (instr, pc, a, b, result, code);
 	   `F_MOV	:	begin
 	      x = b;
 	      c1 = 1'b0;
+	      v1 = 1'b0;
 	      s1	=	x[15];
 	      z1	=	x[15:0] == 16'b0000000000000000;
 	      result1 = x[15:0];
@@ -323,6 +333,7 @@ module calc (instr, pc, a, b, result, code);
 	   `F_OUT	:	begin
 	      result1 = a;
 	      c1 = 1'b0;
+	      v1 = 1'b0;
 	      s1	= 1'b0;
 	      z1	= 1'b0;
 	   end
@@ -330,9 +341,6 @@ module calc (instr, pc, a, b, result, code);
 	      result1 = 16'b0000000000000000;
 	   end
 	 endcase // case (instr[7:4])
-      end else if(instr[15:11] == 5'b10100 || instr[15:11] == 5'b10111) begin // if (instr[15:14] == 2'b11)
-	 tmp_x = pc + 12'd1 + {{4{instr[7]}}, instr[7:0]};
-	 result1 = {{4{tmp_x[11]}}, tmp_x};
       end else if (instr[15:14] == 2'b00 || instr[15:14] == 2'b01) begin// LW or ST
 	 result1 = b + {{8{instr[7]}},instr[7:0]};
       end else if (instr[15:11] == 5'b10000) begin//LI
@@ -423,7 +431,7 @@ module calc (instr, pc, a, b, result, code);
 	end
       endcase
       code2 = {s2,z2,c2,v2};
-   end
+   end // always @ *
    always @* begin
       // select ALU result or Shifer result
       if (instr[15:14] == 2'b11 && ((instr[7:4] == `F_SLL) || (instr[7:4] == `F_SLR) || (instr[7:4] == `F_SRL) || (instr[7:4] == `F_SRA))) begin

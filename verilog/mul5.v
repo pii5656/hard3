@@ -1,10 +1,10 @@
 /* mul5 ** select val to write to PC and set enable for PC ** */
 
-module mul5(from_adder, jflag, result, phase, next_pc, pc_enable);
+module mul5(from_adder, jflag, jdest, phase, next_pc, pc_enable);
    input jflag;
-   input [15:0] result;
+   input [11:0] jdest;
    input [11:0] from_adder;
-   input [4:0] 	phase;
+   input [2:0] 	phase;
    output [11:0] next_pc;
    output 	 pc_enable;
    
@@ -13,9 +13,9 @@ module mul5(from_adder, jflag, result, phase, next_pc, pc_enable);
    
    always @* begin
       case(phase)
-	5'b01000 : begin
+	5'b010 : begin
 	   if (jflag) begin
-	      next_pc = result[11:0];
+	      next_pc = jdest;
 	      pc_enable = 1'b1;
 	   end else begin
 	      next_pc = from_adder;
