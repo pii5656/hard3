@@ -23,19 +23,19 @@ module SIMPLE(
    wire [11:0] pc;
    wire [15:0] SYNTHESIZED_WIRE_1;
    wire [15:0] SYNTHESIZED_WIRE_2;
-   wire        SYNTHESIZED_WIRE_3;
+   wire        out_reg_enable;
    wire [15:0] SYNTHESIZED_WIRE_21;
    wire [15:0] SYNTHESIZED_WIRE_6;
    wire [3:0]  SYNTHESIZED_WIRE_7;
    wire [15:0] SYNTHESIZED_WIRE_8;
    wire [127:0] rf;
-   wire [15:0] 	SYNTHESIZED_WIRE_10;
+   wire [15:0] 	ram_out;
    wire [11:0] SYNTHESIZED_WIRE_11;
-   wire [15:0] SYNTHESIZED_WIRE_22;
+   wire [15:0] mul4result;
    wire        SYNTHESIZED_WIRE_13;
    wire [11:0] pc_in;
    wire        SYNTHESIZED_WIRE_15;
-   wire        SYNTHESIZED_WIRE_17;
+   wire        rf_enable;
    wire	       SYNTHESIZED_WIRE_18;
    wire [3:0]  szcv;
    wire        jflag;
@@ -44,11 +44,11 @@ module SIMPLE(
    wire [15:0] data;
    wire [2:0]  dest;
    wire [11:0] jdest;
+   wire [15:0] out;
+   wire [15:0] mul7out;
+   wire [15:0] read;
    
    
-   
-   
-       
    assign      SYNTHESIZED_WIRE_15 = 0;
    
    
@@ -68,8 +68,9 @@ module SIMPLE(
    out_reg b2v_inst(
 		    .clk(clk),
 		    .rst(rst),
-		    .ld_outr(SYNTHESIZED_WIRE_3),
-		    .ra(SYNTHESIZED_WIRE_21)
+		    .ld_outr(out_reg_enable),
+		    .ra(SYNTHESIZED_WIRE_21),
+		    .out(out)
 		    );
    
 
@@ -77,7 +78,7 @@ module SIMPLE(
    rab	b2v_inst19(
 		   .clk(clk),
 		   .rst(rst),	
-		   .ld_rab(phase[1]),
+		   .ld_rab(phase[2]),
 		   .a_in(SYNTHESIZED_WIRE_21),
 		   .b_in(SYNTHESIZED_WIRE_6),
 		   .a_out(SYNTHESIZED_WIRE_1),
@@ -87,7 +88,7 @@ module SIMPLE(
    szcv	b2v_inst20(
 		   .clk(clk),
 		   .rst(rst),	
-		   .ld_szcv(phase[0]),
+		   .ld_szcv(phase[2]),
 		   .szcv_in(SYNTHESIZED_WIRE_7),
 		   .szcv_out(szcv));
    jcalc jcalc(.pc(pc),
@@ -102,9 +103,9 @@ module SIMPLE(
 		   .phase(phase),
 		   .from_calc(SYNTHESIZED_WIRE_8),
 		   .instr(instr),
-		   .read(SYNTHESIZED_WIRE_10),
-		   .rf_enable(SYNTHESIZED_WIRE_17),
-		   .result(SYNTHESIZED_WIRE_22));
+		   .read(read),
+		   .rf_enable(rf_enable),
+		   .result(mul4result));
    
    
    mul1	b2v_inst25(
@@ -121,7 +122,7 @@ module SIMPLE(
    mul6	b2v_inst26(
 		   .instr(instr),
 		   .phase(phase),
-		   .enable(SYNTHESIZED_WIRE_3));
+		   .enable(out_reg_enable));
 
    
    phase_counter b2v_inst27(
@@ -138,11 +139,20 @@ module SIMPLE(
 		   .enable(ph_enable));
    
 
+   mul7 mul7(
+	     .phase(phase),
+	     .ram_out(ram_out),
+	     .past_instr(mul7out),
+	     .mul7out(mul7out),
+	     .toread(read)
+	     );
+   
+   
 ir	b2v_ir1(
 	.clk(clk),
 	.rst(rst),	
-	.ld_ir(phase[0]),
-	.ir_in(SYNTHESIZED_WIRE_10),
+	.ld_ir(phase[1]),
+	.ir_in(mul7out),
 	.ir_out(instr));
 
 
@@ -178,15 +188,15 @@ pc	b2v_pc1(
 			 .clk(clk),
 			 .data(data),
 			 .address(address),
-			 .q(SYNTHESIZED_WIRE_10));
+			 .q(ram_out));
    
 
    rf	b2v_register_file(
 	.clk(clk),
 	.rst(rst),
-	.ld_rf(phase[1]),
+	.ld_rf(rf_enable),
 	.dest(dest),
-	.from_alu(SYNTHESIZED_WIRE_22),
+	.from_alu(mul4result),
 	.out_rf(rf));
 
 assign	pin_name1 = phase[0];

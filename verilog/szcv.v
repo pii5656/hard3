@@ -10,7 +10,7 @@ module szcv (clk, rst, szcv_in, ld_szcv, szcv_out);
    reg [3:0] 	szcv_out;
    
    //wire	[15:0]	ir_out;
-		
+ 	
    always @(posedge rst or posedge clk) begin
       if (rst) begin
 	 szcv_out <= 4'b0000;

@@ -11,6 +11,7 @@ module phase_counter(clk, rst, enable, past_phase, out_phase);
      if (rst) begin
 	tmp_out_phase = 3'b000;
      end else if (enable) begin
+	// 000なら100に初期化
 	tmp_past_phase = past_phase ? past_phase : 3'b100;
 	case (tmp_past_phase)
 	  3'b001	:	begin

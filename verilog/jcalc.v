@@ -25,7 +25,7 @@ module jcalc(pc, instr, szcv, jdest, jflag);
       end else if (instr[15:11] == 5'b10111) begin
 	 case(instr[10:8])
 	   3'b000 : begin
-	      if (s) begin
+	      if (z) begin
 		 jflag = 1'b1;
 	      end
 	   end

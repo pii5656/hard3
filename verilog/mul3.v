@@ -19,7 +19,7 @@ module mul3(phase, instr, pc, result, ra, address, wren, data);
       end else if(instr[15:14] == 2'b00 && phase == 3'b001) begin // loadのとき
 	 address = result[11:0];
 	 wren = 1'b0;
-	 data = 16'd0;	 
+	 data = 16'd0;
       end else begin
 	 address = pc;
 	 wren = 1'b0;
