@@ -1,0 +1,10 @@
+LI t0, 1;
+LI t1, 2;
+LI t2, 32;
+ST t0, 0(t2);
+ST t1, 4(t2);
+LD t3, 0(t2);
+LD t4, 4(t2);
+ADD t3, t4;
+ADDI t3, -1;
+ST t3, 0(t2);

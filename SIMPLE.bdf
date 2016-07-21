@@ -793,6 +793,28 @@ applicable agreement for further details.
 	)
 	(flipy_rotate90)
 )
+(symbol
+	(rect 448 984 624 1064)
+	(text "mul2" (rect 5 0 30 11)(font "Arial" ))
+	(text "inst1" (rect 8 64 32 75)(font "Arial" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "instr[15..0]" (rect 0 0 51 11)(font "Arial" ))
+		(text "instr[15..0]" (rect 21 27 72 38)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32)(line_width 3))
+	)
+	(port
+		(pt 176 32)
+		(output)
+		(text "dest[2..0]" (rect 0 0 46 11)(font "Arial" ))
+		(text "dest[2..0]" (rect 117 27 163 38)(font "Arial" ))
+		(line (pt 176 32)(pt 160 32)(line_width 3))
+	)
+	(drawing
+		(rectangle (rect 16 16 160 64))
+	)
+)
 (connector
 	(pt 544 112)
 	(pt 576 112)
@@ -1252,6 +1274,11 @@ applicable agreement for further details.
 	(pt 1608 896)
 	(pt 1640 896)
 	(bus)
+)
+(connector
+	(text "rst" (rect 1402 864 1416 875)(font "Arial" ))
+	(pt 1440 880)
+	(pt 1392 880)
 )
 (junction (pt 936 528))
 (junction (pt 936 512))

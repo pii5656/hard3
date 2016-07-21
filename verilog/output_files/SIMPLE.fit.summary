@@ -1,0 +1,12 @@
+Fitter Status : Successful - Thu Jul 21 19:22:39 2016
+Quartus II 32-bit Version : 13.0.1 Build 232 06/12/2013 SP 1 SJ Full Version
+Revision Name : SIMPLE
+Top-level Entity Name : SIMPLE_
+Family : Cyclone
+Device : EP1C6Q240C8
+Timing Models : Final
+Total logic elements : 1,030 / 5,980 ( 17 % )
+Total pins : 26 / 185 ( 14 % )
+Total virtual pins : 0
+Total memory bits : 65,536 / 92,160 ( 71 % )
+Total PLLs : 0 / 2 ( 0 % )

@@ -1,0 +1,13 @@
+
+
+/home/014/a0147801/hard3/verilog/ram01.vhd
+
+Jul 19 05PM:43:00>: The following design file, which has identical name but a different extension 
+from the specified variation file, already exists in the working directory:
+
+ram01.v
+
+This may create a conflict of design files and/or lead to undesirable side
+effects.
+
+Is it OK to continue file generation?
