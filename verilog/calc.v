@@ -34,6 +34,7 @@ module calc (instr, a, b, result, code);
    always @* begin
 		if (instr[15:14] == 2'b11 && instr[7:4] ==4'b0101) begin
 			x = b - a;
+			//x = 17'd0;
 	      c1 = x[16];
 			v1= 1'b0; // Szero kotei
 			s1 = x[15]; // v top bit
