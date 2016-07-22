@@ -21,14 +21,14 @@ module jcalc(pc, instr, szcv, jdest, jflag);
       v = szcv[0];
       
       if (instr[15:11] == 5'b10100) begin
-			jflag = 1'b1;
+	 jflag = 1'b1;
       end else if (instr[15:11] == 5'b10111) begin
 	 case(instr[10:8])
 	   3'b000 : begin
 	      if (z) begin
 		 jflag = 1'b1;
 	      end else begin
-			jflag = 1'b0;
+		 jflag = 1'b0;
 			end
 	   end
 	   3'b001 : begin
@@ -49,12 +49,12 @@ module jcalc(pc, instr, szcv, jdest, jflag);
 	      if (!z) begin
 		 jflag = 1'b1;
 	      end else begin
-			jflag = 1'b0;
-			end
+		 jflag = 1'b0;
+	       end
 	   end
-	   default : begin
-	      jflag = 1'b0;
-	   end
+//	   default : begin
+//	      jflag = 1'b0;
+//	   end
 	 endcase // case (instr[13:11])
       end else begin // if (instr[15:14] == 2'b10)
 	 jflag = 1'b0;

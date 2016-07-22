@@ -34,7 +34,8 @@ module SIMPLE_TEST();
       CLK = 1'b1;
       RST = 1'b1;
       //$monitor("phase=%b, pc=%h, instr=%b, mul4result=%b, a=%b, b=%b, out=%b, rf=%b, ram_out=%b, address=%b, rf_enable=%b, out=%b",SIMPLE.phase, SIMPLE.pc,  SIMPLE.instr, SIMPLE.mul4result, SIMPLE.SYNTHESIZED_WIRE_1, SIMPLE.SYNTHESIZED_WIRE_2, SIMPLE.out, SIMPLE.rf, SIMPLE.ram_out, SIMPLE.address, SIMPLE.rf_enable, SIMPLE.out);
-      $monitor("ph=%b,pc=%h, addr=%h, instr=%b, szcv=%b, ramout=%b, jflag=%b",SIMPLE.phase, SIMPLE.pc, SIMPLE.address, SIMPLE.instr, SIMPLE.szcv, SIMPLE.ram_out, SIMPLE.jflag);
-      
-   end
+      $monitor("ph=%b,pc=%h, addr=%h, instr=%b, szcv=%b, ramout=%b, jflag=%b, pc_enable=%b",SIMPLE.phase, SIMPLE.pc, SIMPLE.address, SIMPLE.instr, SIMPLE.szcv, SIMPLE.ram_out, SIMPLE.jflag, SIMPLE.SYNTHESIZED_WIRE_11);
+
+   //$monitor("instr=%b", SIMPLE.instr);
+   end   
 endmodule
