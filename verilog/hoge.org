@@ -1,0 +1,9 @@
+#+TITLE: 論文タイトルhoge
+#+AUTHOR: 名前
+#+LATEX_CLASS: thesis
+#+OPTIONS: toc:nil timestamp:nil
+
+
+* 序論
+  近年、○○が注目を集めている cite:abramowitz+stegun 
+** ゴバ

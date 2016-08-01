@@ -1,0 +1,13 @@
+#+TITLE: ハードウェア実験３最終レポートB
+#+AUTHOR: 21班 新藤光 1029-26-4887 
+#+LATEX_CLASS: thesis
+#+OPTIONS: toc:nil timestamp:nil
+
+
+* 主要なコンポーネントの単体での性能評価
+** プログラム・カウンタ
+
+** ALU/SHIFTER
+- ゲート数 523 / 5980 (9%)
+- Fmax 254.32MHz
+- クリティカル・パス From instr[11] To z1

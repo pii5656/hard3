@@ -1,0 +1,9 @@
+// 即値演算のテスト
+
+main:
+LI t1, 0;
+ADDI t1, 3;
+
+LI t2, 5;
+ANDI t2, 0xff;
+

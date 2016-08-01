@@ -1,0 +1,16 @@
+module ram01(
+	input [15:0] data,
+	input wren,
+	input wire [10:0] address,
+	input clock,
+	output reg [15:0] q
+);
+
+	//16bit幅 2048word
+	(* ram_style = "BLOCK" *) reg [15:0] bram[0:2047];
+
+	initial begin
+		bram[12'd0] = 16'h8500;
+		bram[12'd1] = 16'h8410;
+		bram[12'd2] = 16'he550;
+		bram[12'd3] = 16'hba0f;

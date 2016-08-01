@@ -1,0 +1,43 @@
+    # i = 0;
+    move $s2, $zero;
+
+    # while (i < N) {
+    loop_i_start:
+    bge $s2, $s1, loop_i_end
+
+    # j = N - 1;
+    add $s3, $s1, -1
+
+    # while (j > i) {
+    loop_j_start:
+    ble $s3, $s2, loop_j_end
+
+    # if (x[j] < x[j - 1]) swap(&x[j], &x[j - 1]);
+    add $t1, $s3, -1
+    sll $t0, $s3, 2
+    sll $t1, $t1, 2
+    add $t0, $t0, $s0
+    add $t1, $t1, $s0
+    lw $t2, 0($t0)
+    lw $t3, 0($t1)
+    bge $t2, $t3, skip_swap
+    sw $t2, 0($t1)
+    sw $t3, 0($t0)
+    skip_swap:
+
+    # --j;
+    addi $s3, $s3, -1
+
+    # }
+    j loop_j_start
+    loop_j_end:
+
+    # ++i;
+    addi $s2, $s2, 1
+
+    # }
+    j loop_i_start
+    loop_i_end:
+
+    # return;
+    jr $ra

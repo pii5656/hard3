@@ -1,0 +1,45 @@
+	# i = 0;
+	li $s2, 0;
+	li $s1, 16 		;データ数
+    # while (i < N) {
+loop_i_start:
+	bge $s2, $s1, loop_i_end
+	cmp $s2 $s1
+	ble loop_i_end
+	
+
+    # j = N - 1;
+    add $s3, $s1, -1
+
+    # while (j > i) {
+loop_j_start:
+	cmp $s2, $s3 		;j-iが０以下の時endへジャンプ
+	ble  loop_j_end
+
+	# if (x[j] < x[j - 1]) swap(&x[j], &x[j - 1]);
+	add $t0, $s3, 0
+	add $t1, $s3, -1
+	lw $t2, 0($t0)
+	lw $t3, 0($t1)
+	cmp $t0, $t1 		;x[j-1]-x[j]<=0でswapskip
+	ble skipswap
+	sw $t2, 0($t1)
+	sw $t3, 0($t0)
+    skip_swap:
+
+    # --j;
+    addi $s3, $s3, -1
+
+    # }
+    be loop_j_start
+    loop_j_end:
+
+    # ++i;
+    addi $s2, $s2, 1
+
+    # }
+    be loop_i_start
+    loop_i_end:
+
+    # return;
+    jr $ra

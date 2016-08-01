@@ -1,0 +1,20 @@
+LI t0, 0;              // ループカウンタ
+
+sound_loop:
+    LI t1, 3;          // 何回ループするか
+    SUB t1, t0;         // もしt1回ループしてたら
+    BE loop_end;       // break;
+    LI t2, score;
+    ADD t2, t0;        // scoreのt0番目の音符を演奏したい
+    LD t3, 0(t2);      // score[t0]の音符をロード
+    OUT t3, 2;         // 波形出力機にt3の値を出力
+    LI t4, 1;
+    ADD t0, t4;         // ループカウンタをインクリメント
+
+loop_end:
+    HLT ;
+
+score:
+    WORD _note(%hiA, %lowG#, %midE);  // 1つめの音
+    WORD _note(%Mute, %Mute, %midF#); // 2つのブザーを止める
+    WORD _note(%Mute, %Mute, %Mute);  // 全部止める

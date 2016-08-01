@@ -1,0 +1,3 @@
+score:
+    WORD _note(%hiA, %lowG#, %midE);  // 1つめの音
+    WORD _note(%Mute, %Mute, %midF#); // 2つのブザーを止める

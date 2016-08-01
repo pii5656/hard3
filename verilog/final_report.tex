@@ -1,0 +1,211 @@
+\documentclass{jarticle}
+                                \usepackage[dvipdfmx]{graphicx}
+\author{21班 新藤光 1029-26-4887}
+\date{\today}
+\title{ハードウェア実験３最終レポートA}
+\begin{document}
+
+\maketitle
+
+\section{基本仕様}
+\label{sec-1}
+\subsection{概要}
+\label{sec-1-1}
+今回作成したアーキテクチャの名前を以下SIMPLE-J とする。
+SIMPLE-Jは16bitの命令を実行する簡単なアーキテクチャである。
+\subsection{アーキテクチャ}
+\label{sec-1-2}
+\subsubsection{主記憶とレジスタ}
+\label{sec-1-2-1}
+主記憶とレジスタは、それぞれすべて16bit幅である。
+\begin{itemize}
+\item 主記憶
+\end{itemize}
+16bit幅であり、命令の格納とデータの格納・読み出しは同じ主記憶上で行う。
+\begin{itemize}
+\item レジスタ
+\end{itemize}
+16bit幅のレジスタt0\textasciitilde{}t7がある。
+\subsection{特徴}
+\label{sec-1-3}
+シングルコアであり、かつ１命令を５つのフェーズ１からフェーズ５に分け、フェーズ１とフェーズ３、フェーズ２とフェーズ５をそれぞれ並行に処理する。
+\subsection{命令セット}
+\label{sec-1-4}
+\subsubsection{命令形式}
+\label{sec-1-4-1}
+SIMPLE-Jの命令はすべて16ビットの固定長である。
+以下に命令セットを示す。
+\begin{enumerate}
+\item 算術演算\\
+\label{sec-1-4-1-1}
+レジスタRdとRsの結果の加算、減算をRdに格納する。
+\item 論理演算\\
+\label{sec-1-4-1-2}
+レジスタRdとRsのAnd、Or、XORの結果をRdに格納する。
+\item 移動演算\\
+\label{sec-1-4-1-3}
+レジスタRdにRsの値を格納する。
+\item シフト演算\\
+\label{sec-1-4-1-4}
+左論理シフト、左循環シフト、右論理シフト、右算術シフトの結果をRdに格納する。
+\item 入出力命令\\
+\label{sec-1-4-1-5}
+\begin{itemize}
+\item OUT　レジスタRsの値を出力機器に出力する。
+\item HLT 動作を停止させる。
+\end{itemize}
+\item ロードストア命令\\
+\label{sec-1-4-1-6}
+メモリに値を書き込んだり値を読みだしたりする。
+\item 条件分岐命令\\
+\label{sec-1-4-1-7}
+分岐条件が成り立つときPCを書きかえて分岐する。
+\begin{center}
+\begin{tabular}{rllll}
+\hline
+15   14 & 13  11 & 10  8 & 7    4 & 3  0\\
+\hline
+11 & Rs & Rd & op3 & d\\
+\hline
+\end{tabular}
+\end{center}
+
+\begin{center}
+\begin{tabular}{lrl}
+\hline
+mnemonic & op3 & function\\
+\hline
+ADD Rd,Rs & 0000 & r[Rd] = r[Rd] + r[Rs]\\
+\hline
+SUB Rd,Rs & 0001 & r[Rd] = r[Rd] - r[Rs]\\
+\hline
+AND Rd,Rs & 0010 & r[Rd] = r[Rd] \& r[Rs]\\
+\hline
+OR Rd,Rs & 0011 & r[Rd] = r[Rd]  r[Rs]\\
+\hline
+XOR Rd,Rs & 0100 & r[Rd] = r[Rd] \^{} r[Rs]\\
+\hline
+CMP Rd,Rs & 0101 & r[Rd] -  r[Rs]\\
+\hline
+MOV Rd,Rs & 0110 & r[Rd] =  r[Rs]\\
+\hline
+SLL Rd,Rs & 1000 & r[Rd] = sll(r[Rd], d)\\
+\hline
+SLR Rd,Rs & 0011 & r[Rd] = slr(r[Rd], d)\\
+\hline
+SRL Rd,Rs & 1001 & r[Rd] = srl(r[Rd], d)\\
+\hline
+SRA Rd,Rs & 1011 & r[Rd] = sra(r[Rd], d)\\
+\hline
+OUT Rs & 1101 & output = r[Rs]\\
+\hline
+HLT & 1111 & halt()\\
+\hline
+\end{tabular}
+\end{center}
+
+
+\begin{center}
+\begin{tabular}{llll}
+\hline
+15   14 & 13  11 & 10  8 & 7       0\\
+\hline
+op1 & Ra & Rb & d\\
+\hline
+\end{tabular}
+\end{center}
+
+\begin{center}
+\begin{tabular}{lrl}
+\hline
+mnemonic & op1 & function\\
+\hline
+LI Rb,d & 000 & r[Rb] = sign$_{\text{ext}}$(d)\\
+\hline
+addi Rb & 001 & r[Rb] = r[Rb] + sign$_{\text{ext}}$(d)\\
+\hline
+subi Rb & 010 & r[Rb] = r[Rb] + sign$_{\text{ext}}$(d)\\
+\hline
+B Rb,d & 100 & PC = PC + 1 + sign$_{\text{ext}}$(d)\\
+\hline
+\end{tabular}
+\end{center}
+
+
+\begin{center}
+\begin{tabular}{rrll}
+\hline
+15 14 & 13 11 & 10 8 & 7 0\\
+\hline
+10 & 111 & cond & d\\
+\hline
+\end{tabular}
+\end{center}
+
+\begin{center}
+\begin{tabular}{lrl}
+\hline
+mnemonic & cond & function\\
+\hline
+BE d & 000 & if (Z) PC = PC + 1 + sign$_{\text{ext}}$(d)\\
+\hline
+BLT d & 001 & if (S \^{} V) PC = PC + 1 + sign$_{\text{ext}}$(d)\\
+\hline
+BLE d & 010 & if (Z ∨ (S \^{} V)) PC = PC + 1 + sign$_{\text{ext}}$(d)\\
+\hline
+BNE d & 011 & if (!Z) PC = PC + 1 + sign$_{\text{ext}}$(d)\\
+\hline
+\end{tabular}
+\end{center}
+\end{enumerate}
+
+
+\subsection{基本的な設計}
+\label{sec-1-5}
+\subsubsection{制御回路}
+\label{sec-1-5-1}
+\begin{enumerate}
+\item clock\\
+\label{sec-1-5-1-1}
+適切な発振回路を用いてクロックを提供する。クロックの立ち上がりによって各フェーズを順に活性化する。
+\item reset\\
+\label{sec-1-5-1-2}
+reset信号の立ち上がりによって、回路内のすべてのDFFの値を０に初期化する。
+\end{enumerate}
+
+\section{SIMPLEBの基本仕様からの拡張および性能評価}
+\label{sec-2}
+\subsection{基本アーキテクチャの拡張}
+\label{sec-2-1}
+\subsubsection{命令の拡張}
+\label{sec-2-1-1}
+\begin{enumerate}
+\item 即値演算\\
+\label{sec-2-1-1-1}
+即値を足したり引いたりするとき、無駄なロード命令、ストア命令を減らすことができるようになる。
+\item フェーズ１とフェーズ３、フェーズ２とフェーズ５の同時実行。\\
+\label{sec-2-1-1-2}
+\end{enumerate}
+
+\subsection{プロセッサの性能評価}
+\label{sec-2-2}
+\subsubsection{ゲート数 1027/5980(17\%)}
+\label{sec-2-2-1}
+\subsubsection{Fmax 57.32MHz}
+\label{sec-2-2-2}
+\subsubsection{クリティカルパス}
+\label{sec-2-2-3}
+From rab:inst20|a-out3
+To  ram:ram1
+\subsubsection{拡張の評価}
+\label{sec-2-2-4}
+\begin{enumerate}
+\item 並列化するにあたり必要な回路が増えたので、ゲート数は増えた。
+\label{sec-2-2-4-1}
+\end{enumerate}
+
+\section{分担状況}
+\label{sec-3}
+すべて自分で設計しました。
+% Emacs 24.5.1 (Org mode 8.2.10)
+\end{document}

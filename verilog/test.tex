@@ -1,0 +1,46 @@
+% Created 2016-07-20 水 13:41
+\ifdefined\kanjiskip
+  \documentclass[autodetect-engine,dvipdfmx,12pt,a4paper,ja=standard]{bxjsarticle}
+\else
+  \ifdefined\pdfoutput
+    \ifnum\pdfoutput=0
+      \documentclass[autodetect-engine,dvipdfmx,12pt,a4paper,ja=standard]{bxjsarticle}
+    \else
+      \documentclass[autodetect-engine,12pt,a4paper,ja=standard]{bxjsarticle}
+    \fi
+  \else
+    \documentclass[autodetect-engine,12pt,a4paper,ja=standard]{bxjsarticle}
+  \fi
+\fi
+\usepackage{amsmath}
+\usepackage{newtxtext,newtxmath}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\ifdefined\kanjiskip
+  \usepackage{pxjahyper}
+  \hypersetup{colorlinks=true}
+\else
+  \ifdefined\XeTeXversion
+      \hypersetup{colorlinks=true}
+  \else
+    \ifdefined\directlua
+      \hypersetup{pdfencoding=auto,colorlinks=true}
+    \else
+      \hypersetup{unicode,colorlinks=true}
+    \fi
+  \fi
+\fi
+\author{fuga}
+\date{\today}
+\title{hoge}
+\hypersetup{
+  pdfkeywords={},
+  pdfsubject={},
+  pdfcreator={Emacs 24.5.1 (Org mode 8.2.10)}}
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+% Emacs 24.5.1 (Org mode 8.2.10)
+\end{document}

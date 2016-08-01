@@ -1,0 +1,21 @@
+\documentclass{jarticle}
+\author{21班 新藤光 1029-26-4887}
+\date{\today}
+\title{ハードウェア実験３最終レポートA}
+\begin{document}
+
+\maketitle
+
+\section{{\bfseries\sffamily TODO} hage}
+\label{sec-1}
+\subsection{概要}
+\label{sec-1-1}
+今回作a成したアーキテクチャの名前を以下SIMPLE$_{\text{Jとする。}}$
+SIMPLE$_{\text{Jは16bitの命令を実行する簡単なアーキテクチャである。}}$
+\subsection{アーキテクチャ}
+\label{sec-1-2}
+\subsubsection{{\bfseries\sffamily DONE} 主記憶とレジスタ}
+\label{sec-1-2-1}
+主記憶１つ、レジスタは８つあり、それぞれすべて16bit幅である。
+% Emacs 24.5.1 (Org mode 8.2.10)
+\end{document}

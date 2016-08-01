@@ -1,0 +1,36 @@
+// this is a program
+// メモリの10個の数値の和を求める
+
+LI t0, 0;       // t0をカウンタとして使う
+LI t1, array;   // t1に数値の配列の先頭アドレスを代入
+LI t2, 0;       // t2が和
+LI t4, 1;       // +1するためだけのレジスタ
+LI t6, 10;      // 何回ループするか
+main_loop:
+  CMP t6, t0;   // t0(カウンタ) == t6(ループ回数)ならbreak
+  BE loop_exit;
+  MOV t5, t1;   // t5に配列の先頭アドレスを代入
+  ADD t5, t0;   // 配列の先頭からt0番目のアドレスにする
+  LD t3, 0(t5); // t3に配列の要素をコピー
+  ADD t2, t3;   // t2(それまでの和)にt3(次の値)を足す
+  ADD t0, t4;   // 配列のアドレスをインクリメント
+  B main_loop;  // ループ先頭に戻る
+
+loop_exit:
+  OUT t2, 0;       // 和をLED0に出力
+  HLT;
+
+// 和を求める配列
+array:
+  WORD 0x1002;
+  WORD 0x1123;
+  WORD 0x1154;
+  WORD 0x006f;
+  WORD 0x0145;
+  WORD 0x0001;
+  WORD 0x122f;
+  WORD 0xbeef;
+  WORD 0xabcd;
+  WORD 0x8822;
+// そのうち実装します
+// end of program
